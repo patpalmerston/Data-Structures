@@ -3,7 +3,7 @@ import sys
 sys.path.append('../doubly_linked_list')
 
 """Each ListNode holds a reference to its previous node
-as well as its next node in the List."""
+as well as its next node in the L ist."""
 
 
 class ListNode:
@@ -158,14 +158,14 @@ class Queue:
 
     def enqueue(self, value):
         self.size += 1
-        return self.storage.add_to_head(value)
+        return self.storage.add_to_tail(value)
 
     def dequeue(self):
         if self.size is 0:
             return
         else:
             self.size -= 1
-            return self.storage.remove_from_tail()
+            return self.storage.remove_from_head()
 
     def len(self):
         return self.size
