@@ -244,19 +244,22 @@ class BinarySearchTree:
         if node.left:
             self.in_order_print(node.left)
             print(node.value)
-        # if node.right:
-        #     self.in_order_print(node.right)
-        #     print(node.value)
+        if node.right:
+            self.in_order_print(node.right)
+            # print(node.value)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
         pass
+            
+            
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
         pass
+            
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
