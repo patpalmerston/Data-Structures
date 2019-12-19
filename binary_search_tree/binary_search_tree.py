@@ -228,13 +228,27 @@ class BinarySearchTree:
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
-        cb(self.value)
-        if self.right:
-            self.right.for_each(cb)
-        if self.left:
-            self.left.for_each(cb)
-        if not self.right and not self.left:
-            return
+        #version 1 recursive
+        # cb(self.value)
+        # if self.right:
+        #     self.right.for_each(cb)
+        # if self.left:
+        #     self.left.for_each(cb)
+        # if not self.right and not self.left:
+        #     return
+
+        #version 2 iterative
+        stack = Stack()
+        stack.push(self)
+
+        while stack.len() > 0:
+            current_node = stack.pop()
+            if current_node.right:
+                stack.push(current_node.right)
+            if current_node.left:
+                stack.push(current_node.left)
+            cb(current_node.value)
+
 
     # DAY 2 Project -----------------------
 
@@ -251,7 +265,20 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        #grab tha que
+        que = Queue()
+        #add the node to the que
+        que.enqueue(node)
+        while que.size > 0:
+            # remove node from front of que
+            dq = que.dequeue()
+            print(dq.value)
+            # check left
+            if dq.left is not None:
+                que.enqueue(dq.left)
+            # check right
+            if dq.right is not None:
+                que.enqueue(dq.right)
             
             
 
