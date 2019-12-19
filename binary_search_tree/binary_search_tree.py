@@ -271,21 +271,40 @@ class BinarySearchTree:
         que.enqueue(node)
         while que.size > 0:
             # remove node from front of que
-            dq = que.dequeue()
-            print(dq.value)
+            node = que.dequeue()
+            print(node.value)
             # check left
-            if dq.left is not None:
-                que.enqueue(dq.left)
+            if node.left is not None:
+                #add left node to que
+                que.enqueue(node.left)
             # check right
-            if dq.right is not None:
-                que.enqueue(dq.right)
+            if node.right is not None:
+                #add right node to que
+                que.enqueue(node.right)
             
             
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        #make a stack
+        stack = Stack()
+        #put root in stack
+        stack.push(node)
+        #loop through stack
+        while stack.size > 0:
+            #pop node off stack
+            sp = stack.pop()
+            #check node value
+            print(sp.value)
+            #check left
+            if sp.left is not None:
+                #add left to stack
+                stack.push(sp.left)
+            #check right
+            if sp.right is not None:
+                #add right to stack
+                stack.push(sp.right)
             
 
     # STRETCH Goals -------------------------
