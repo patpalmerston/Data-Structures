@@ -1,3 +1,7 @@
+
+import sys
+sys.path.append('../doubly_linked_list')
+
 """Each ListNode holds a reference to its previous node
 as well as its next node in the List."""
 
@@ -144,3 +148,24 @@ class DoublyLinkedList: # dont have to have this
                 max_val = current.value
             current = current.next
         return max_val
+
+
+class Queue:
+    def __init__(self):
+        self.size = 0
+        # Why is our DLL a good choice to store our elements?
+        self.storage = DoublyLinkedList()
+
+    def enqueue(self, value):
+        self.size += 1
+        return self.storage.add_to_tail(value)
+
+    def dequeue(self):
+        if self.size is 0:
+            return
+        else:
+            self.size -= 1
+            return self.storage.remove_from_head()
+
+    def len(self):
+        return self.size
